@@ -1,0 +1,25 @@
+GNU nano 8.7.1                                                          copiar.sh                                                                   
+#!/bin/bash
+#copiar
+
+if [ "$#" -ne 2 ];then
+ echo "Use: ./copiar.sh  original copia"
+ exit 1
+fi
+
+if [ ! -f "$1" ];then
+    echo "Arquivo não existe"
+    exit 1
+fi
+
+if  [ -f "$2" ];then
+    echo "Ja tem um arquivo com esse  nome"
+    exit 1
+fi
+
+if cp -- "$1" "$2" ;then
+   echo "Voce fez uma copia do arquivo $1 e com o nome $2"
+else
+  echo "Não foi possivel fazer a copia"
+  exit 1
+fi
